@@ -1,0 +1,47 @@
+service: demoapi
+
+provider:
+  name: aws
+  runtime: java11
+  memorySize: 1512
+  timeout: 60
+  region: ap-southeast-1
+  profile: default
+  endpointType: REGIONAL
+
+resources:
+  Description: Example Demo API written with SpringBoot with the aws-serverless-java-container library
+
+package:
+  individually: true
+
+functions:
+  SpringBootDemoApi:
+    package: 
+      artifact: build/distributions/springboot-java-serverless-with-mysql.zip #target/serverless-spring-boot-example-1.0-SNAPSHOT-lambda-package.zip
+    handler: com.api.demo.StreamLambdaHandler::handleRequest
+    events:
+      - http:
+          path: /person/all
+          method: get
+          cors: true
+      - http:
+          path: /person/{id}
+          method: get
+          cors: true
+      - http:
+          path: /person/name/{name}
+          method: get
+          cors: true
+      - http:
+          path: /person/save
+          method: post
+          cors: true
+      - http:
+          path: /person/{id}
+          method: put
+          cors: true
+      - http:
+          path: /person/{id}
+          method: delete
+          cors: true
