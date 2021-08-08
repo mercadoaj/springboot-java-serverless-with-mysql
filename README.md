@@ -36,6 +36,8 @@ Once the deployment is complete you'll get information like this in the terminal
 
   ![ScreenShot](/docs/endpoints.PNG)
 
+
+to remove, just do:
 ```
 $ serverless remove
 ```
