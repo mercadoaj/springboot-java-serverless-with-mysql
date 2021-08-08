@@ -18,7 +18,7 @@ package:
 functions:
   SpringBootDemoApi:
     package: 
-      artifact: build/distributions/springboot-java-serverless-with-mysql.zip #target/serverless-spring-boot-example-1.0-SNAPSHOT-lambda-package.zip
+      artifact: build/distributions/springboot-serverless-with-mysql.zip #target/serverless-spring-boot-example-1.0-SNAPSHOT-lambda-package.zip
     handler: com.api.demo.StreamLambdaHandler::handleRequest
     events:
       - http:
